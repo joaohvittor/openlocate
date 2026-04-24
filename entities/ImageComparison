@@ -1,0 +1,49 @@
+{
+  "name": "ImageComparison",
+  "type": "object",
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "description": "ID of the associated case"
+    },
+    "image_a_url": {
+      "type": "string",
+      "description": "URL of first image"
+    },
+    "image_b_url": {
+      "type": "string",
+      "description": "URL of second image"
+    },
+    "similarity_score": {
+      "type": "number",
+      "description": "Similarity score from AI engine"
+    },
+    "confidence_level": {
+      "type": "string",
+      "description": "Confidence level from AI engine"
+    },
+    "investigator_name": {
+      "type": "string",
+      "description": "Name of the investigator"
+    },
+    "investigator_notes": {
+      "type": "string",
+      "description": "Investigator interpretation notes"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "completed",
+        "reviewed",
+        "flagged"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "case_id",
+    "image_a_url",
+    "image_b_url"
+  ]
+}

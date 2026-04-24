@@ -1,0 +1,73 @@
+{
+  "name": "DNASample",
+  "type": "object",
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "description": "Associated case ID"
+    },
+    "sample_label": {
+      "type": "string",
+      "description": "Label or identifier for this sample"
+    },
+    "sample_type": {
+      "type": "string",
+      "enum": [
+        "victim",
+        "unknown",
+        "reference"
+      ],
+      "description": "Category of sample"
+    },
+    "collection_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date sample was collected"
+    },
+    "lab_reference_id": {
+      "type": "string",
+      "description": "External lab reference identifier"
+    },
+    "collected_by": {
+      "type": "string",
+      "description": "Name or institution that collected the sample"
+    },
+    "str_markers": {
+      "type": "array",
+      "description": "STR marker allele pairs",
+      "items": {
+        "type": "object",
+        "properties": {
+          "locus": {
+            "type": "string"
+          },
+          "allele_1": {
+            "type": "string"
+          },
+          "allele_2": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes about the sample"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "ready",
+        "compared",
+        "archived"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "case_id",
+    "sample_label",
+    "sample_type"
+  ]
+}

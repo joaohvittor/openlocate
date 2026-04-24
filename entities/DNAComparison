@@ -1,0 +1,100 @@
+{
+  "name": "DNAComparison",
+  "type": "object",
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "description": "Associated case ID"
+    },
+    "sample_a_id": {
+      "type": "string",
+      "description": "ID of first DNA sample"
+    },
+    "sample_b_id": {
+      "type": "string",
+      "description": "ID of second DNA sample"
+    },
+    "sample_a_label": {
+      "type": "string",
+      "description": "Label of first sample (snapshot)"
+    },
+    "sample_b_label": {
+      "type": "string",
+      "description": "Label of second sample (snapshot)"
+    },
+    "loci_compared": {
+      "type": "number",
+      "description": "Total number of loci compared"
+    },
+    "loci_matched": {
+      "type": "number",
+      "description": "Number of loci that matched"
+    },
+    "loci_mismatched": {
+      "type": "number",
+      "description": "Number of loci that did not match"
+    },
+    "similarity_ratio": {
+      "type": "number",
+      "description": "Ratio of matched to total loci (0-100)"
+    },
+    "correspondence_level": {
+      "type": "string",
+      "enum": [
+        "low correspondence",
+        "moderate correspondence",
+        "high correspondence"
+      ],
+      "description": "Neutral correspondence label"
+    },
+    "marker_results": {
+      "type": "array",
+      "description": "Per-locus comparison results",
+      "items": {
+        "type": "object",
+        "properties": {
+          "locus": {
+            "type": "string"
+          },
+          "allele_a1": {
+            "type": "string"
+          },
+          "allele_a2": {
+            "type": "string"
+          },
+          "allele_b1": {
+            "type": "string"
+          },
+          "allele_b2": {
+            "type": "string"
+          },
+          "match": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "investigator_notes": {
+      "type": "string",
+      "description": "Analyst interpretation notes"
+    },
+    "authorized_by": {
+      "type": "string",
+      "description": "User who confirmed legal authorization"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "reviewed",
+        "flagged"
+      ],
+      "default": "completed"
+    }
+  },
+  "required": [
+    "case_id",
+    "sample_a_id",
+    "sample_b_id"
+  ]
+}

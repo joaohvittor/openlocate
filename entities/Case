@@ -1,0 +1,54 @@
+{
+  "name": "Case",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Case title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Case description"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "reviewing",
+        "closed"
+      ],
+      "default": "open",
+      "description": "Case status"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "medium"
+    },
+    "assigned_to": {
+      "type": "string",
+      "description": "Email of assigned investigator"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs of attached images"
+    },
+    "comparison_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of comparisons performed"
+    }
+  },
+  "required": [
+    "title",
+    "status"
+  ]
+}

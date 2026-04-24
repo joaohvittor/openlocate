@@ -1,0 +1,28 @@
+{
+  "name": "CaseNote",
+  "type": "object",
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "description": "ID of the associated case"
+    },
+    "content": {
+      "type": "string",
+      "description": "Note content"
+    },
+    "note_type": {
+      "type": "string",
+      "enum": [
+        "general",
+        "update",
+        "finding",
+        "action"
+      ],
+      "default": "general"
+    }
+  },
+  "required": [
+    "case_id",
+    "content"
+  ]
+}
