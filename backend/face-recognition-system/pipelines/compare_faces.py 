@@ -1,0 +1,20 @@
+import numpy as np
+from numpy.linalg import norm
+
+def cosine_similarity(a, b):
+    return np.dot(a, b) / (norm(a) * norm(b))
+
+def compare_embeddings(emb1, emb2):
+    score = cosine_similarity(emb1, emb2)
+
+    if score > 0.6:
+        level = "high"
+    elif score > 0.4:
+        level = "medium"
+    else:
+        level = "low"
+
+    return {
+        "similarity_score": float(score),
+        "confidence_level": level
+    }
